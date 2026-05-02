@@ -1,0 +1,6 @@
+package models;
+
+import java.util.UUID;
+
+public record PostDto(UUID id,String title,String content,UserDto author) {
+}
