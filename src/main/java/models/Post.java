@@ -21,9 +21,8 @@ public class Post {
     @Enumerated(EnumType.STRING)
     private PostStatus status=PostStatus.DRAFT;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="author")
+    @JoinColumn(name="author_id")
     private users author;
     @OneToMany(mappedBy = "post",cascade = CascadeType.ALL,orphanRemoval = true)
-    @JoinColumn(name="comment_id")
     private List<Comment> comments;
 }
