@@ -1,8 +1,8 @@
-package Security;
+package org.example.blogginapi.Security;
 
-import Repository.userRepository;
+import org.example.blogginapi.Repository.userRepository;
 import lombok.RequiredArgsConstructor;
-import models.users;
+import org.example.blogginapi.models.users;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

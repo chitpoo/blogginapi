@@ -1,6 +1,6 @@
-package Repository;
+package org.example.blogginapi.Repository;
 
-import models.users;
+import org.example.blogginapi.models.users;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

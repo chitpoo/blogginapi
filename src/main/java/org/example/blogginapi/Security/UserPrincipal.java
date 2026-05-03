@@ -1,7 +1,7 @@
-package Security;
+package org.example.blogginapi.Security;
 
 import lombok.RequiredArgsConstructor;
-import models.users;
+import org.example.blogginapi.models.users;
 import org.jspecify.annotations.Nullable;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -22,11 +22,11 @@ public class UserPrincipal implements UserDetails {
 
     @Override
     public @Nullable String getPassword() {
-        return "";
+        return user.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return "";
+        return user.getUsername();
     }
 }
