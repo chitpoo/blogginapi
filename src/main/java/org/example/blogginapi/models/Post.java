@@ -1,10 +1,11 @@
-package models;
+package org.example.blogginapi.models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 @Entity
@@ -24,5 +25,5 @@ public class Post {
     @JoinColumn(name="author_id")
     private users author;
     @OneToMany(mappedBy = "post",cascade = CascadeType.ALL,orphanRemoval = true)
-    private List<Comment> comments;
+    private List<Comment> comments=new ArrayList<>();
 }

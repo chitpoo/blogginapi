@@ -1,7 +1,7 @@
-package Repository;
+package org.example.blogginapi.Repository;
 
-import models.Comment;
-import models.Post;
+import org.example.blogginapi.models.Comment;
+import org.example.blogginapi.models.Post;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

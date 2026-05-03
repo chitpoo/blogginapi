@@ -1,4 +1,4 @@
-package models;
+package org.example.blogginapi.models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

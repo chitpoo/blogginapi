@@ -1,4 +1,4 @@
-package models;
+package org.example.blogginapi.models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -12,6 +12,7 @@ import java.util.UUID;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+//@Table(name = "users")
 @Entity
 public class users {
     @Id
@@ -25,10 +26,10 @@ public class users {
     @Column(nullable = false)
     private String password;
     @Enumerated(EnumType.STRING)
-    private Role role;
+    private Role role=Role.USER;
     private LocalDateTime creationtime;
     @OneToMany(mappedBy = "author", fetch = FetchType.LAZY,cascade = CascadeType.ALL,orphanRemoval = true)
-    List<Post> posts=new ArrayList<>();
+    private List<Post> posts=new ArrayList<>();
     @OneToMany(mappedBy = "author", fetch=FetchType.LAZY,cascade = CascadeType.ALL,orphanRemoval = true)
-    List<Comment> comments=new ArrayList<>();
+    private List<Comment> comments=new ArrayList<>();
 }
