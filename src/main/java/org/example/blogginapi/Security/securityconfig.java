@@ -18,7 +18,6 @@ public class securityconfig {
     private final UserDetailServiceImp userDetailsService;
     @Bean
     public PasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder(12);
     }
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
