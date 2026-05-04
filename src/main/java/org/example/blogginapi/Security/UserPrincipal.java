@@ -19,12 +19,17 @@ public class UserPrincipal implements UserDetails {
         return UserDetails.super.isEnabled();
     }
 
+    public users getUser() {
+        return user;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(
                 new SimpleGrantedAuthority("ROLE_"+user.getRole().name())
         );
     }
+
 
     @Override
     public @Nullable String getPassword() {
