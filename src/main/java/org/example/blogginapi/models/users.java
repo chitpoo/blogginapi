@@ -32,4 +32,6 @@ public class users {
     private List<Post> posts=new ArrayList<>();
     @OneToMany(mappedBy = "author", fetch=FetchType.LAZY,cascade = CascadeType.ALL,orphanRemoval = true)
     private List<Comment> comments=new ArrayList<>();
+    @OneToMany(mappedBy = "user", fetch=FetchType.LAZY,cascade = CascadeType.ALL,orphanRemoval = true)
+    private List<Like> likes=new ArrayList<>();
 }

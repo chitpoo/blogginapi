@@ -3,6 +3,8 @@ package org.example.blogginapi.Service;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.example.blogginapi.Repository.PostRepository;
+import org.example.blogginapi.Repository.userRepository;
+import org.example.blogginapi.Security.UserDetailServiceImp;
 import org.example.blogginapi.Security.UserPrincipal;
 import org.example.blogginapi.models.*;
 import org.springframework.stereotype.Service;
@@ -14,6 +16,9 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class PostService {
     private final PostRepository postRepository;
+    private final userRepository userRepository;
+    private final UserDetailServiceImp userDetailServiceImp;
+
     public List<PostDto> getPostByUser(String username) {
         return postRepository.findByAuthor_Username(username).stream()
                 .map(this::readPostDto)
@@ -43,5 +48,17 @@ public class PostService {
         postRepository.delete(p);
         return "Post deleted";
 
+    }
+
+    public PostDto CreatePost(CreatePostDto dto, String e) {
+        users user=userRepository.findByusername(e)
+                .orElseThrow(()->new RuntimeException("User not found"));
+        Post newPost=new Post();
+        newPost.setTitle(dto.title());
+        newPost.setContent(dto.content());
+        newPost.setAuthor(user);
+        newPost.setSlug(dto.title().toLowerCase());
+        postRepository.save(newPost);
+        return readPostDto(newPost);
     }
 }
