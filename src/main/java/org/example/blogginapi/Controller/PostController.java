@@ -27,4 +27,13 @@ public class PostController {
     public String deletePostById(@PathVariable UUID id, @AuthenticationPrincipal UserPrincipal user){return postService.deletePostById(id,user);}
     @PostMapping("/api/posts/")
     public PostDto CreatePost(@RequestBody CreatePostDto dto,UserPrincipal user){String e=user.getUsername();return postService.CreatePost(dto,e);}
+    @PostMapping("/api/posts/id/{id}/like")
+    private PostDto LikePost(@PathVariable UUID id,@AuthenticationPrincipal UserPrincipal user){return postService.LikePost(id,user);}
+    @PutMapping("/api/posts/{id}")
+    private PostDto UpdatePost(@PathVariable UUID postid,
+                               @RequestBody  CreatePostDto dto,
+                               @AuthenticationPrincipal UserPrincipal user)
+    {
+        return postService.UpdatePost(postid,dto,user);
+    }
 }
